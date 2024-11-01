@@ -2,9 +2,9 @@
 
 [中文](README_zh.md) | [English](README.md) | [日本語](README_ja.md)
 
-The open-source version of [AI Webpage Summary](https://302.ai/tools/websum/) from [302.AI](https://302.ai).
-You can directly log in to 302.AI and use the online version with zero code and zero configuration.
-Or modify this project according to your needs, input the 302.AI API KEY, and deploy it yourself.
+Open-source version of the [AI Webpage Summary](https://302.ai/tools/websum/) from [302.AI](https://302.ai).
+You can directly log in to 302.AI for a zero-code, zero-configuration online experience.
+Alternatively, customize this project to suit your needs, integrate 302.AI's API KEY, and deploy it yourself.
 
 ## ✨ About 302.AI ✨
 [302.AI](https://302.ai) is a pay-as-you-go AI application platform, bridging the gap between AI capabilities and practical implementation.
@@ -16,12 +16,12 @@ Or modify this project according to your needs, input the 302.AI API KEY, and de
 6. 💡 Powerful development team: Launching 2-3 new applications weekly with daily product updates. Interested developers are welcome to contact us.
 
 ## Project Features
-- 📝 Webpage summary for quick understanding.
-- 🧠 Mind map for visual summary.
-- 🔗 Quick link extraction.
-- 🖼️ Image listing with zoom-in support.
-- 🌓 Dark mode for eye protection.
-- 🌐 Internationalization supporting Chinese, English, and Japanese.
+1. 📝 Webpage summary for quick understanding.
+2. 🧠 Mind map for visual summary.
+3. 🔗 Quick link extraction.
+4. 🖼️ Image listing with zoom-in support.
+4. 🌓 Dark mode for eye protection.
+5. 🌐 Internationalization supporting Chinese, English, and Japanese.
 
 ## Tech Stack
 - Next.js 14
