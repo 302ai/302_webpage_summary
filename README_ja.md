@@ -31,7 +31,7 @@ AI音声通話を通じて、誰でもいつでもAIと対話できます 🎉�
 - Dexie.js
 
 ## 開発&デプロイ
-1. プロジェクトをクローン：`git clone https://github.com/302ai/302_website_summary`
+1. プロジェクトをクローン：`git clone https://github.com/302ai/302_webpage_summary`
 2. 依存関係をインストール：`pnpm install`
 3. 302のAPI KEYを設定（.env.exampleを参照）
 4. プロジェクトを実行：`pnpm dev`

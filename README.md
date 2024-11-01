@@ -30,7 +30,7 @@ Or modify this project according to your needs, input the 302.AI API KEY, and de
 - Dexie.js
 
 ## Development & Deployment
-1. Clone the project: `git clone https://github.com/302ai/302_website_summary`
+1. Clone the project: `git clone https://github.com/302ai/302_webpage_summary`
 2. Install dependencies: `pnpm install`
 3. Configure the 302 API KEY (refer to .env.example)
 4. Run the project: `pnpm dev`
