@@ -1,19 +1,19 @@
 # 🤖 Welcome to 302.AI's AI Webpage Summary! 🚀✨
 
-[Chinese](README_zh.md) | [English](README.md) | [Japanese](README_ja.md)
+[中文](README_zh.md) | [English](README.md) | [日本語](README_ja.md)
 
 The open-source version of [AI Webpage Summary](https://302.ai/tools/websum/) from [302.AI](https://302.ai).
 You can directly log in to 302.AI and use the online version with zero code and zero configuration.
 Or modify this project according to your needs, input the 302.AI API KEY, and deploy it yourself.
 
-## ✨ 302.AI Introduction ✨
-[302.AI](https://302.ai) is a pay-as-you-go AI application platform.
-- 🧠 Aggregates the latest AI capabilities and brands.
-- 🚀 Develops real AI products based on foundational models.
-- 💰 Zero monthly fees, all functions pay-as-you-go.
-- 🛠 Powerful management backend for teams and SMEs.
-- 🔗 Provides API access for all AI capabilities.
-- 💡 Strong development team with daily updates.
+## ✨ About 302.AI ✨
+[302.AI](https://302.ai) is a pay-as-you-go AI application platform, bridging the gap between AI capabilities and practical implementation.
+1. 🧠 Comprehensive AI capabilities: Incorporates the latest in language, image, audio, and video models from leading AI brands.
+2. 🚀 Advanced application development: We build genuine AI products, not just simple chatbots.
+3. 💰 No monthly fees: All features are pay-per-use, fully accessible, ensuring low entry barriers with high potential.
+4. 🛠 Powerful admin dashboard: Designed for teams and SMEs - managed by one, used by many.
+5. 🔗 API access for all AI features: All tools are open-source and customizable (in progress).
+6. 💡 Powerful development team: Launching 2-3 new applications weekly with daily product updates. Interested developers are welcome to contact us.
 
 ## Project Features
 - 📝 Webpage summary for quick understanding.
@@ -23,7 +23,7 @@ Or modify this project according to your needs, input the 302.AI API KEY, and de
 - 🌓 Dark mode for eye protection.
 - 🌐 Internationalization supporting Chinese, English, and Japanese.
 
-## Technology Stack
+## Tech Stack
 - Next.js 14
 - Tailwind CSS
 - Shadcn UI
