@@ -1,4 +1,4 @@
-# 🎙️🤖 Welcome to 302.AI's AI Webpage Summary! 🚀✨
+# 🤖 Welcome to 302.AI's AI Webpage Summary! 🚀✨
 
 [Chinese](README_zh.md) | [English](README.md) | [Japanese](README_ja.md)
 

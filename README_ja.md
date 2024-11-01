@@ -1,4 +1,4 @@
-# 🎙️🤖 302.AIのAIウェブページサマリーへようこそ! 🚀✨
+# 🤖 302.AIのAIウェブページサマリーへようこそ! 🚀✨
 
 [中文](README_zh.md) | [English](README.md) | [日本語](README_ja.md)
 

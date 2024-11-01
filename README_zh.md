@@ -1,4 +1,4 @@
-# 🎙️🤖 欢迎来到302.AI的AI网页总结! 🚀✨
+# 🤖 欢迎来到302.AI的AI网页总结! 🚀✨
 
 [中文](README_zh.md) | [English](README.md) | [日本語](README_ja.md)
 
