@@ -1,0 +1,28 @@
+{
+  "extras": {
+    "share": {
+      "error": "コピー失敗",
+      "success": "コピー成功"
+    }
+  },
+  "header": {
+    "error_change_model": "エラーが発生しました。モデルを交換してみてください",
+    "error_url_invalid": "エラーが発生しました。Webアドレスの入力が正しくないか、Webアドレスにアクセスできないかもしれません。再入力してください",
+    "no_include_valid_url": "有効なビデオリンクを入力してください",
+    "start_button": "開始",
+    "start_button_loading": "処理中",
+    "title": "AIウェブサマリー",
+    "url_input_placeholder": "リンクを入力してください"
+  },
+  "main": {
+    "default_md_file_name": "要約",
+    "default_svg_file_name": "要約マインドマップ",
+    "tab_image": {
+      "image_download_error": "画像のダウンロードに失敗しました"
+    },
+    "view_image": "画像",
+    "view_link": "リンク",
+    "view_mind_map": "マインドマップ",
+    "view_summary": "要約"
+  }
+}

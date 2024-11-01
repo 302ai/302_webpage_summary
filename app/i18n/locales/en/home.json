@@ -1,0 +1,28 @@
+{
+  "extras": {
+    "share": {
+      "error": "Copy failed",
+      "success": "Copy successful"
+    }
+  },
+  "header": {
+    "error_change_model": "Something went wrong, please try changing the model",
+    "error_url_invalid": "Error, it may be due to incorrect URL input or inability to access the URL. Please re-enter",
+    "no_include_valid_url": "Please enter a valid video link",
+    "start_button": "Start",
+    "start_button_loading": "Processing",
+    "title": "AI Webpage Summary",
+    "url_input_placeholder": "Please enter a link"
+  },
+  "main": {
+    "default_md_file_name": "Summary",
+    "default_svg_file_name": "Summary Mind Map",
+    "tab_image": {
+      "image_download_error": "Image download failed"
+    },
+    "view_image": "Image",
+    "view_link": "Link",
+    "view_mind_map": "Mind Map",
+    "view_summary": "Summary"
+  }
+}

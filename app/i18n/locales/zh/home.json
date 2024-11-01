@@ -1,0 +1,28 @@
+{
+  "extras": {
+    "share": {
+      "error": "复制失败",
+      "success": "复制成功"
+    }
+  },
+  "header": {
+    "error_change_model": "出错啦，请尝试更换模型",
+    "error_url_invalid": "出错啦，可能是网址输入不正确或者网址无法访问，请重新输入",
+    "no_include_valid_url": "请输入有效的视频链接",
+    "start_button": "开始",
+    "start_button_loading": "处理中",
+    "title": "AI网页总结",
+    "url_input_placeholder": "请输入一个链接"
+  },
+  "main": {
+    "default_md_file_name": "总结",
+    "default_svg_file_name": "总结脑图",
+    "tab_image": {
+      "image_download_error": "图片下载失败"
+    },
+    "view_image": "图片",
+    "view_link": "链接",
+    "view_mind_map": "脑图",
+    "view_summary": "总结"
+  }
+}
