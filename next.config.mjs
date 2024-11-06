@@ -3,6 +3,9 @@ const nextConfig = {
   reactStrictMode: false,
   experimental: {
     serverComponentsExternalPackages: ['pino', 'pino-pretty'],
+    serverActions: {
+      allowedOrigins: ['*.302ai.cn']
+    }
   },
   output: 'standalone',
   images: {
