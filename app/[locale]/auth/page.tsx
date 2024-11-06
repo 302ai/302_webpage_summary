@@ -3,6 +3,7 @@ import { use302Url } from '@/app/hooks/use-302url'
 import { useClientTranslation } from '@/app/hooks/use-client-translation'
 import { useIsDark } from '@/app/hooks/use-is-dark'
 import { useLogin } from '@/app/hooks/use-login'
+import useSettings from '@/app/hooks/use-settings'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
@@ -26,6 +27,8 @@ export default function Page() {
   const { code, errMessage, handleLogin, setCode } = useLogin(t)
   const { href } = use302Url()
 
+  const { settings } = useSettings()
+
   const [rememberCode, setRememberCode] = useState(false)
   const handleChangeRememberCode = (state: CheckedState) => {
     setRememberCode(state === 'indeterminate' ? false : state)
@@ -40,15 +43,17 @@ export default function Page() {
   return (
     <div className='flex h-fit min-h-screen w-full min-w-[375px] flex-col items-center justify-center p-0 transition-[padding] ease-in-out lg:px-32 lg:py-16 xl:px-64'>
       <div className='flex w-full flex-1 flex-col rounded-none border border-gray-300 bg-white p-9 shadow-xl dark:border-gray-700 dark:bg-background dark:shadow-none lg:rounded-3xl'>
-        <div className='flex flex-1 flex-col justify-around gap-4'>
-          <Image
-            alt='ai-302'
-            className='mx-auto h-[36px] w-[128px]'
-            src={isDark ? darkLogo : lightLogo}
-            quality={100}
-            height={72}
-            width={256}
-          />
+        <div className='flex flex-1 flex-col gap-4 justify-center'>
+          {!settings?.hideBrand && (
+            <Image
+              alt='ai-302'
+              className='mx-auto h-[36px] w-[128px] mb-12'
+              src={isDark ? darkLogo : lightLogo}
+              quality={100}
+              height={72}
+              width={256}
+            />
+          )}
           <div className='mx-auto flex w-full flex-col gap-2 text-center transition-all ease-in-out md:w-4/5 lg:w-72'>
             <div className='flex justify-center'>
               <svg

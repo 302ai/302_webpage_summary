@@ -5,23 +5,25 @@ import { authKy } from './api'
 
 interface Response {
   data: {
-    info: string
-    api_key: string
-    model_name: string
-    region: string
-  }
-  code: number
+    info: string;
+    api_key: string;
+    model_name: string;
+    region: string;
+    settings: Record<string, boolean>
+  };
+  code: number;
 }
 
 interface LoginResult {
-  success: boolean
-  errorMessage?: string
+  success: boolean;
+  errorMessage?: string;
   data?: {
-    info: string
-    apiKey: string
-    modelName: string
-    region: string
-  }
+    info: string;
+    apiKey: string;
+    modelName: string;
+    region: string;
+    settings: Record<string, boolean>
+  };
 }
 
 export const login = async (
@@ -53,6 +55,7 @@ export const login = async (
         modelName:
           data.data.model_name || env('NEXT_PUBLIC_DEFAULT_MODEL_NAME')!,
         region: data.data.region,
+        settings: data.data.settings,
       },
     }
   }

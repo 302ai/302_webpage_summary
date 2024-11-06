@@ -40,3 +40,5 @@ export function getApiKey() {
   const use302Auth = getUse302Auth();
   return use302Auth ? useUserStore.getState().apiKey : env('NEXT_PUBLIC_API_KEY');
 }
+
+export const showBrand = env("NEXT_PUBLIC_SHOW_BRAND") === 'true';

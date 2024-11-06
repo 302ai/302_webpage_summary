@@ -83,7 +83,10 @@ const ImageItem = (props: { url: string }) => {
 
   const init = async () => {
     const proxyUrl = window.location.origin + getImgProxyUrl(urlFromParent);
-    const renderUrl = await getRenderUrl(proxyUrl) || ""
+    let renderUrl = await getRenderUrl(proxyUrl) || ""
+    if(!renderUrl){
+      renderUrl = urlFromParent
+    }
     setRenderUrl(renderUrl);
     return;
   }

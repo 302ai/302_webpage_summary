@@ -5,6 +5,7 @@ import { TabMindMap } from "./tab-mind-map";
 import { TabLinks } from "./tab-links";
 import { TabImage } from "./tab-image";
 import { linkItem } from "../../types";
+import { useEffect, useMemo, useState } from "react";
 
 /**
  * 对应tabs的每个标签页的内容
@@ -24,6 +25,17 @@ export const ContentPannel = (props: {
 
   const { activeTab, onClickUrl, markdownSummaryStr, url, links, imageLinks, loading } = props;
 
+  const [isClickedTabImage, setIsClickedTabImage] = useState(false)
+  useEffect(() => {
+    if (activeTab !== "image") {
+      return;
+    }
+    if (isClickedTabImage) {
+      return;
+    }
+    setIsClickedTabImage(true)
+  }, [markdownSummaryStr, activeTab])
+
   return (
     <>
       <div className="flex flex-1 flex-col w-full">
@@ -37,7 +49,9 @@ export const ContentPannel = (props: {
           <TabLinks onClickUrl={onClickUrl} links={links} loading={loading} />
         </div>
         <div className={cn('flex flex-1 flex-col', activeTab === 'image' ? '' : 'hidden')}>
-          <TabImage imageLinks={imageLinks} />
+          {isClickedTabImage && (
+            <TabImage imageLinks={imageLinks} />
+          )}
         </div>
       </div>
     </>

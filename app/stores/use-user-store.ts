@@ -3,6 +3,8 @@ import { create } from 'zustand'
 
 import { storeMiddleware } from './middleware'
 
+export type SettingKey = 'hideBrand' | 'showCost';
+
 interface UserStore {
   _hasHydrated: boolean
   info?: string
@@ -10,7 +12,8 @@ interface UserStore {
   modelName?: string
   region?: string
   code?: string
-  language?: string
+  language?: string,
+  settings?: Record<SettingKey, boolean>
 }
 
 interface UserActions {
@@ -32,6 +35,10 @@ export const useUserStore = create<UserStore & UserActions>()(
       region: '',
       code: '',
       language: 'en',
+      settings: {
+        hideBrand: true,
+        showCost: false,
+      },
       updateField: (field, value) =>
         set(
           produce((state) => {
@@ -53,6 +60,6 @@ export const useUserStore = create<UserStore & UserActions>()(
           })
         ),
     }),
-    'user_store_videosum'
+    'user_store_websum'
   )
 )

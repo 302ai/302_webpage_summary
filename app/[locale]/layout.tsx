@@ -13,6 +13,7 @@ import { cache } from 'react'
 import { Toaster } from 'react-hot-toast'
 import { Providers } from '../components/providers'
 import { Toolbar } from '../components/toolbar'
+import Chat302 from '../components/chat302'
 
 export async function generateStaticParams() {
   return languages.map((locale) => ({ locale }))
@@ -46,7 +47,7 @@ export async function generateMetadata(
   // const seoRes = await getSEOData()
   const seoRes = {
     data: {
-      id: 'videosum',
+      id: 'websum',
       supportLanguages: ['zh', 'en', 'ja'],
       fallbackLanguage: 'en',
       languages: {
@@ -129,10 +130,7 @@ export default function RootLayout({
             <ErrorHandler />
             <Toolbar />
             {children}
-            <script
-              src='https://assets.salesmartly.com/js/project_177_61_1649762323.js'
-              async
-            />
+            <Chat302 />
           </Providers>
         </ClientOnly>
       </body>

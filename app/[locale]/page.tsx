@@ -3,7 +3,7 @@ import { Footer } from '@/app/components/footer'
 import { useLogin } from '@/app/hooks/use-login'
 import { useTranslation } from '@/app/i18n/client'
 import { Header } from '../components/header'
-import { cn, getAuthLocalStorage, getLocalStorage, getSessionStorage, removeLocalStorage, setLocalStorage } from '@/lib/utils'
+import { cn, getLocalStorage, getSessionStorage, removeLocalStorage, setLocalStorage } from '@/lib/utils'
 import { useEffect, useState } from 'react'
 import Main from '../components/main'
 import 'react-photo-view/dist/react-photo-view.css';
@@ -15,12 +15,15 @@ import { LANGUAGE_LIST } from '../components/language'
 import { historyItemKey } from '@/types'
 import { getAll, getMaxId, save } from '@/lib/db'
 import toast from 'react-hot-toast'
+import useSettings from '../hooks/use-settings'
 
 export default function Home() {
 
   const { locale } = useLocale();
 
   const { t } = useTranslation(locale);
+
+  const { settings } = useSettings();
 
   // const global = useAppSelector(selectGlobal)
 
@@ -51,7 +54,7 @@ export default function Home() {
   }
 
   const getSesssionModelName = () => {
-    const objectStr = getSessionStorage("user_store_videosum")
+    const objectStr = getSessionStorage("user_store_websum")
     if (!objectStr) return null;
     const object = JSON.parse(objectStr);
     let modelName: string | null = null
@@ -265,7 +268,9 @@ Return the result in ${language}, do not wrapped in code block with '\`\`\`markd
         >
           <Main loading={loading} onClickUrl={onClickUrl} markdownSummaryStr={summaryStr} url={url} markdownStr={markdownStr} />
         </main>
-        <Footer className={cn('mb-4')} />
+        {!settings?.hideBrand && (
+          <Footer className={cn('mb-4')} />
+        )}
       </div>
     </>
   )
