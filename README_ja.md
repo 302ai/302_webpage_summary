@@ -1,4 +1,4 @@
-# <p align="center">📝 AIホームページのまとめ 🚀✨</p>
+# <p align="center">📝 AIウェブページサマリー 🚀✨</p>
 
 <p align="center">AI によるウェブページの要約機能は、Jina Reader を通じてリンクからコンテンツを取得し、大規模言語モデルを使ってそれを要約することをサポートしています。同時に、分かりやすいマインドマップを生成し、その中のリンクと画像を抽出することもできます。</p>
 
@@ -6,6 +6,7 @@
 
 <p align="center"><a href="README zh.md">中文</a> | <a href="README.md">English</a> | <a href="README_ja.md">日本語</a></p>
 
+![2. ウェブページサマリー](docs/AI网页总结jp.png) 
 
 [302.AI](https://302.ai)の[AIウェブページサマリー](https://302.ai/tools/websum/)のオープンソース版です。
 302.AIに直接ログインすることで、コード不要、設定不要のオンライン体験が可能です。
