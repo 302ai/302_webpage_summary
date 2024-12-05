@@ -2,9 +2,9 @@
 
 <p align="center">AI によるウェブページの要約機能は、Jina Reader を通じてリンクからコンテンツを取得し、大規模言語モデルを使ってそれを要約することをサポートしています。同時に、分かりやすいマインドマップを生成し、その中のリンクと画像を抽出することもできます。</p>
 
-<p align="center"><a href="https://302.ai/tools/word/" target="blank"><img src="https://file.302ai.cn/gpt/imgs/github/302_badge.png" /></a></p >
+<p align="center"><a href="https://302.ai/ja/tools/websum/" target="blank"><img src="https://file.302ai.cn/gpt/imgs/github/302_badge.png" /></a></p >
 
-<p align="center"><a href="README zh.md">中文</a> | <a href="README.md">English</a> | <a href="README_ja.md">日本語</a></p>
+<p align="center"><a href="README_zh.md">中文</a> | <a href="README.md">English</a> | <a href="README_ja.md">日本語</a></p>
 
 ![2. ウェブページサマリー](docs/AI网页总结jp.png) 
 
