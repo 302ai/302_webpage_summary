@@ -23,21 +23,23 @@ WORKDIR /app
 # 复制依赖文件
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
 
+RUN npm install -g corepack@latest
+
 # Install dependencies based on the package manager
 # 根据包管理器安装依赖
 RUN \
   if [ -f yarn.lock ]; then \
-    corepack enable && \
-    yarn --frozen-lockfile; \
+  corepack enable && \
+  yarn --frozen-lockfile; \
   elif [ -f package-lock.json ]; then \
-    npm config set registry https://registry.npmmirror.com && \
-    npm ci; \
+  npm config set registry https://registry.npmmirror.com && \
+  npm ci; \
   elif [ -f pnpm-lock.yaml ]; then \
-    corepack enable pnpm && \
-    pnpm config set registry https://registry.npmmirror.com && \
-    pnpm i --frozen-lockfile; \
+  corepack enable pnpm && \
+  pnpm config set registry https://registry.npmmirror.com && \
+  pnpm i --frozen-lockfile; \
   else \
-    echo "未找到lock文件。" && exit 1; \
+  echo "未找到lock文件。" && exit 1; \
   fi
 
 # Only rebuild the source code when needed
@@ -52,6 +54,8 @@ WORKDIR /app
 # 复制依赖和源代码
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+
+RUN npm install -g corepack@latest
 
 # Execute build based on the build mode
 # 根据构建模式执行构建

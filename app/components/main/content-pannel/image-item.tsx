@@ -1,94 +1,95 @@
-import { useClientTranslation } from "@/app/hooks/use-client-translation"
-import { Button } from "@/components/ui/button"
-import { logger } from "@/lib/logger"
-import { useEffect, useState } from "react"
-import { FaExternalLinkAlt } from "react-icons/fa"
-import { MdOutlineFileDownload } from "react-icons/md"
-import { PhotoProvider, PhotoView } from "react-photo-view"
+import { useClientTranslation } from '@/app/hooks/use-client-translation'
+import { Button } from '@/components/ui/button'
+import { logger } from '@/lib/logger'
+import { useEffect, useState } from 'react'
+import toast from 'react-hot-toast'
+import { FaExternalLinkAlt } from 'react-icons/fa'
+import { MdOutlineFileDownload } from 'react-icons/md'
+import { PhotoProvider, PhotoView } from 'react-photo-view'
 
-/**
- * 单个图片元素
- * Single image element
- * @param props
- * @returns
- */
 const ImageItem = (props: { url: string }) => {
-  const { url: urlFromParent } = props;
-  const { t } = useClientTranslation();
-  const [renderUrl, setRenderUrl] = useState("");
+  const { url: urlFromParent } = props
+  const { t } = useClientTranslation()
 
-  const downloadImg = () => {
-    // 使用new URL()解析网址
-    // Use new URL() to parse the URL
-    const parsedUrl = new URL(urlFromParent);
-    // 获取路径部分
-    // Get the pathname part
-    const pathname = parsedUrl.pathname;
-    const fileName = pathname.split('/').pop() || "default.jpg";
+  const [renderUrl, setRenderUrl] = useState('')
+  const downloadImg = async () => {
+    try {
+      const response = await fetch(renderUrl)
+      const blob = await response.blob()
 
-    var a = document.createElement('a');
-    // 设置a标签的href属性为Blob URL
-    // Set the href attribute of the a tag to the Blob URL
-    a.href = renderUrl;
-    // 设置下载的文件名
-    // Set the download file name
-    a.download = fileName;
-    // 将a标签添加到文档中（不会显示）
-    // Append the a tag to the document (it won't be displayed)
-    document.body.appendChild(a);
-    // 模拟点击a标签
-    // Simulate clicking the a tag
-    a.click();
-    // 从文档中移除a标签
-    // Remove the a tag from the document
-    document.body.removeChild(a);
+      const parsedUrl = new URL(urlFromParent)
+      const fileName = parsedUrl.pathname.split('/').pop() || 'default.jpg'
+
+      const imageBlob = new Blob([blob], { type: 'image/jpeg' })
+      const blobUrl = URL.createObjectURL(imageBlob)
+
+      const a = document.createElement('a')
+      a.href = blobUrl
+      a.download = fileName
+
+      a.style.display = 'none'
+      document.body.appendChild(a)
+
+      a.click()
+
+      setTimeout(() => {
+        document.body.removeChild(a)
+        URL.revokeObjectURL(blobUrl)
+      }, 100)
+    } catch (error) {
+      toast.error(t('home:main.tab_image.image_download_error'))
+      logger.error(error)
+    }
   }
 
-  const getImgProxyUrl = (imgUrl: string) => `/api/img-proxy?url=${encodeURIComponent(imgUrl)}`
+  const getImgProxyUrl = (imgUrl: string) =>
+    `/api/img-proxy?url=${encodeURIComponent(imgUrl)}`
 
   const getBlobFromUrl = async (url: string) => {
-    const promise = new Promise<string | null>(resolve => {
+    const promise = new Promise<string | null>((resolve) => {
       fetch(url)
-        .then(response => {
+        .then((response) => {
           if (response.status !== 200) {
-            resolve(null);
-            return;
+            resolve(null)
+            return
           }
-          response.blob().then(blob => {
-            // 如果需要转换为Blob URL
-            // If you need to convert to Blob URL
-            const blobUrl = URL.createObjectURL(blob);
-            resolve(blobUrl);
-          }).catch(e => {
-            logger.error(e);
-            resolve(null);
-          });
-        }).catch(e => {
-          logger.error(e);
-          resolve(null);
-        });
-    });
-    const result = await promise;
-    return result;
+          response
+            .blob()
+            .then((blob) => {
+              const blobUrl = URL.createObjectURL(blob)
+              resolve(blobUrl)
+            })
+            .catch((e) => {
+              logger.error(e)
+              resolve(null)
+            })
+        })
+        .catch((e) => {
+          logger.error(e)
+          resolve(null)
+        })
+    })
+    const result = await promise
+    return result
   }
 
   const getRenderUrl = async (url: string) => {
-    const urlObject = new URL(url);
+    const urlObject = new URL(url)
     if (urlObject.protocol === 'blob:') {
-      return url;
+      return url
     }
 
-    return await getBlobFromUrl(url);
+    return await getBlobFromUrl(url)
   }
 
   const init = async () => {
-    const proxyUrl = window.location.origin + getImgProxyUrl(urlFromParent);
-    let renderUrl = await getRenderUrl(proxyUrl) || ""
-    if(!renderUrl){
+    const proxyUrl = window.location.origin + getImgProxyUrl(urlFromParent)
+    let renderUrl = (await getRenderUrl(proxyUrl)) || ''
+    if (!renderUrl) {
       renderUrl = urlFromParent
     }
-    setRenderUrl(renderUrl);
-    return;
+    setRenderUrl(renderUrl)
+    return
   }
 
   useEffect(() => {
@@ -96,21 +97,25 @@ const ImageItem = (props: { url: string }) => {
   }, [urlFromParent])
 
   return !!renderUrl ? (
-    <div className='block relative bg-card p-2 border rounded-xl'>
-      <div className="flex flex-row justify-end absolute bottom-3 right-3 space-x-1">
-        <Button variant="outline" className='flex flex-col w-10 shadow' onClick={() => downloadImg()}>
-          <MdOutlineFileDownload className='w-6 h-5' />
+    <div className='relative block rounded-xl border bg-card p-2'>
+      <div className='absolute bottom-3 right-3 flex flex-row justify-end space-x-1'>
+        <Button
+          variant='outline'
+          className='flex w-10 flex-col shadow'
+          onClick={() => downloadImg()}
+        >
+          <MdOutlineFileDownload className='h-5 w-6' />
         </Button>
-        <a className='block' href={renderUrl} target="_blank">
-          <Button variant="outline" className='flex flex-col w-10 shadow'>
-            <FaExternalLinkAlt className='w-6 h-5' />
+        <a className='block' href={renderUrl} target='_blank'>
+          <Button variant='outline' className='flex w-10 flex-col shadow'>
+            <FaExternalLinkAlt className='h-5 w-6' />
           </Button>
         </a>
       </div>
       <PhotoProvider>
         <PhotoView src={renderUrl}>
-          <div className='rounded-xl overflow-hidden bg-stone-100 dark:bg-neutral-800 min-h-16 flex flex-col justify-center'>
-            <img className='m-auto' src={renderUrl} alt="" />
+          <div className='flex min-h-16 flex-col justify-center overflow-hidden rounded-xl bg-stone-100 dark:bg-neutral-800'>
+            <img className='m-auto' src={renderUrl} alt='' />
           </div>
         </PhotoView>
       </PhotoProvider>
@@ -118,4 +123,4 @@ const ImageItem = (props: { url: string }) => {
   ) : null
 }
 
-export default ImageItem;
+export default ImageItem
